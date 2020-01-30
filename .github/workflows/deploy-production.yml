@@ -19,6 +19,8 @@ jobs:
       - name: Install application dependencies
         run: yarn install
       - name: Build application
+        env:
+          REACT_APP_API_URL: ${{ secrets.API_URL }}
         run: yarn build
       - name: Create artifact for application
         uses: actions/upload-artifact@v1

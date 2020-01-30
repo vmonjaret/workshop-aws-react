@@ -14,10 +14,14 @@ export default class PostList extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            isLoaded: true,
-            items: mocks.posts
-        })
+        fetch(`${process.env.REACT_APP_API_URL}/posts/`)
+            .then(res => res.json())
+            .then((result) => {
+                this.setState({
+                    isLoaded: true,
+                    items: result
+                })
+            });
     }
 
     render() {

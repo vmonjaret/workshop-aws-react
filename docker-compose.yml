@@ -5,3 +5,8 @@ services:
     build: ./
     ports:
     - 3000:3000
+
+networks:
+  default:
+    external:
+      name: workshop-aws-api_frontend
